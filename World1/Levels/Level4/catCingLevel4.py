@@ -7,17 +7,17 @@ thisLevel = levelEngine.level()
 thisLevel.levelStartText = "Debug1: You have unlocked boats: small and wooden, motor: manual, pider: color, height."
 #level1.unlocked.append("wood", "small", "manual", "color", "height")
 thisLevel.levelMap = [[1,1,1,1,1,1,1,1],
-                      [1,0,0,0,0,1,9,1],
-                      [1,0,0,0,0,1,0,1],
-                      [1,0,0,0,0,1,0,1],
-                      [1,0,0,0,0,1,0,1],
-                      [1,0,0,0,0,0,0,1],
-                      [1,0,0,0,0,0,0,1],
-                      [1,0,0,0,0,0,0,1],
+                      [1,0,1,0,0,0,1,1],
+                      [1,0,1,0,1,0,0,1],
+                      [1,0,1,0,1,0,0,1],
+                      [1,0,1,0,1,0,0,1],
+                      [1,0,1,0,1,0,0,1],
+                      [1,0,1,0,1,0,0,1],
+                      [1,0,0,0,1,9,0,1],
                       [1,1,1,1,1,1,1,1]]
 #level1.levelStartPosition = [0, 0]
 thisLevel.maxTurns = 10
-thisLevel.levelStartOrientation = 0
+thisLevel.levelStartOrientation = 270
 thisLevel.levelStartPosition = [1,1]
 
 #level1.levelShip.type = "wood"
