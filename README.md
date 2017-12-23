@@ -22,13 +22,13 @@ Update 4.
 
 **The rest are doodles while I learn github**
 
-'''Python
+```Python
 pider5 = piderEngine.pider("0,true,motor.on")
 
 print("Cool yo")
 
-'''
+```
 
-'This' is in code.
+`This` is in code.
 
 [Link me boss]("https://www.google.com")
