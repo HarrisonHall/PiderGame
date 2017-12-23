@@ -3,7 +3,8 @@
 import copy
 
 class pider():
-    directionInputOutput = "(0,true,none)"
+    def __init__(self, PiderDirectionInputOutput):
+        self.directionInputOutput = PiderDirectionInputOutput
     #ex (270,speech.yes,speech.no) (90,true,turn.0)
     #outputs: motor.on, motor.off, turn.0, turn.90, turn.180, turn.270, speech.""
     #inputs: speech."", color.color, height.height
@@ -23,6 +24,8 @@ def directionCorrection(shipDirection,direction): #function corrects direction
         trueDirection = 270
     if trueDirection == 450:
         trueDirection = 90
+    if trueDirection == 360:
+        trueDirection = 0
     return trueDirection
 
 def findDirectionInputOutput(pider, shipDirection):
@@ -109,9 +112,10 @@ def piderCommands(piderList,shipDirection,thisLevel,xposition,yposition): #Add a
         Input = findDirectionInputOutput(x, shipDirection)[1]
         Output = findDirectionInputOutput(x, shipDirection)[2]
         doOutput = False
+        print(x.__class__.__name__,": direction: ",realDirection)
         if Input[:Input.find(".")] == "height":
             searchHeight = int(Input[(Input.find(".")+1):])
-            if realDirection == 0:
+            if realDirection == 0 or realDirection == 360:
                 doOutput = (searchHeight == thisLevel.levelMap[yposition][xposition+1])
             elif realDirection == 180:
                 doOutput = (searchHeight == thisLevel.levelMap[yposition][xposition-1])
