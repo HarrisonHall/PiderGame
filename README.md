@@ -16,9 +16,12 @@ Update 4.
 
 * World1 menu
 
+*Example Code and Execution*
+![code1](/ExampleFiles/code1.png)
+![code2](/ExampleFiles/code2.png)
+![Game Output](/ExampleFiles/Level2.png)
 
 
-#Nice#
 
 **The rest are doodles while I learn github**
 
