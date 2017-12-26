@@ -123,9 +123,9 @@ def piderCommands(piderList,shipDirection,thisLevel,xposition,yposition): #Add a
                 doOutput = (searchHeight == thisLevel.levelMap[yposition+1][xposition])
             else:
                 doOutput = (searchHeight == thisLevel.levelMap[yposition-1][xposition])
-        if Input[:Input.find(".")] == "color":
+	if Input[:Input.find(".")] == "color":
             searchColor = Input[(Input.find(".")+1):]
-            ##Add dictionary to convert from color to number
+	    ##Add dictionary to convert from color to number
             if realDirection == 0 or realDirection == 360:
                 doOutput = (searchColor == thisLevel.levelMap[yposition][xposition+1])
             elif realDirection == 180:

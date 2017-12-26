@@ -38,12 +38,12 @@ pider2 = piderEngine.pider("(90,true,motor.on)")
 pider3 = piderEngine.pider("(90,true,speech.sup)")
 pider4 = piderEngine.pider("(90,speech.sup,turn.90)")
 pider5 = piderEngine.pider("(0,height.1,turn.180)")
-pider6 = piderEngine.pider("(90,true,speech.sup)")
+pider6 = piderEngine.pider("(90,height.0,speech.sup)")
 pider7 = piderEngine.pider("(180,height.1,turn.0)")
 pider8 = piderEngine.pider("(90,speech.sup,motor.on)")
 
 
-piderList = [pider6, pider5, pider7, pider8]
+piderList = [pider5, pider7, pider6, pider8]
 
 ##
 ##End test input
