@@ -9,9 +9,11 @@ import Engine.shipEngine as shipEngine
 select = False
 while (select == False):
     levelSelected =  int(input("Level: "))
-    if levelSelected > 0 and levelSelected < 5:
+    if levelSelected > 0 and levelSelected < 6:
         select = True
-        if levelSelected ==4:
+        if levelSelected == 5:
+            from Levels.Level5 import catCingLevel5 as thisLevel
+        elif levelSelected ==4:
             from Levels.Level4 import catCingLevel4 as thisLevel
         elif levelSelected == 3:
             from Levels.Level3 import catCingLevel3 as thisLevel

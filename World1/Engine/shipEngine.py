@@ -16,7 +16,7 @@ def printMap(mapListofLists):
         print(x)
     print("")
         
-def shipMove(shipMaterial, shipSize, shipDirection, thisLevel, motorOn, mapSize, xposition, yposition): #return ["(win/lose/go)",xposition,yposition]
+def shipMove(shipMaterial, shipSize, shipDirection, thisLevel, motorOn, mapSize, xposition, yposition, gameTurns): #return ["(win/lose/go)",xposition,yposition]
     lose = False
     win = False
     currentMap = copy.deepcopy(thisLevel.levelMap)
@@ -48,14 +48,27 @@ def shipMove(shipMaterial, shipSize, shipDirection, thisLevel, motorOn, mapSize,
         while (move > 0):
             currentMap = copy.deepcopy(thisLevel.levelMap)
             if (shipDirection == 0 or shipDirection == 360):
-                if (thisLevel.levelMap[yposition][xposition+1] == 0):
+                if (thisLevel.levelMap[yposition][xposition+1] == 0):#water
                     xposition += 1
-                elif (thisLevel.levelMap[yposition][xposition+1] == 1):
+                elif (thisLevel.levelMap[yposition][xposition+1] == 1):#rock
                     move = 0
-                elif (thisLevel.levelMap[yposition][xposition+1] == 9):
+                elif (thisLevel.levelMap[yposition][xposition+1] == 9):#flag
                     win = True
                     xposition += 1
-                else: # -1
+                elif (thisLevel.levelMap[yposition][xposition+1] == 2):#iceburg
+                    xposition += 1
+                    gameTurns += 1
+                elif (thisLevel.levelMap[yposition][xposition+1] == 3.1):#windleft
+                    move = 0
+                elif (thisLevel.levelMap[yposition][xposition+1] == 3.2):#windright
+                    xposition += 2
+                elif (thisLevel.levelMap[yposition][xposition+1] == 3.3):#windup
+                    yposition -= 1
+                    xposition += 1
+                elif (thisLevel.levelMap[yposition][xposition+1] == 3.4):#winddown
+                    yposition -= 1
+                    xposition += 1
+                else: # -1, whirlpool
                     xposition += 1
                     lose = True
             elif shipDirection == 90:
@@ -66,6 +79,20 @@ def shipMove(shipMaterial, shipSize, shipDirection, thisLevel, motorOn, mapSize,
                 elif (thisLevel.levelMap[yposition-1][xposition] == 9):
                     win = True
                     yposition -= 1
+                elif (thisLevel.levelMap[yposition-1][xposition] == 2):#iceburg
+                    yposition -= 1
+                    gameTurns += 1
+                elif (thisLevel.levelMap[yposition-1][xposition] == 3.1):#windleft
+                    xposition -= 1
+                    yposition -= 1
+                elif (thisLevel.levelMap[yposition-1][xposition] == 3.2):#windright
+                    xposition += 1
+                    yposition -= 1
+                elif (thisLevel.levelMap[yposition-1][xposition] == 3.3):#windup
+                    yposition -= 2
+                    print("We got here!")
+                elif (thisLevel.levelMap[yposition-1][xposition] == 3.4):#winddown
+                    move = 0
                 else: # -1
                     yposition -=1
                     lose = True
@@ -76,6 +103,19 @@ def shipMove(shipMaterial, shipSize, shipDirection, thisLevel, motorOn, mapSize,
                     move = 0
                 elif (thisLevel.levelMap[yposition][xposition-1] == 9):
                     win = True
+                    xposition -= 1
+                elif (thisLevel.levelMap[yposition][xposition-1] == 2):#iceburg
+                    xposition -= 1
+                    gameTurns += 1
+                elif (thisLevel.levelMap[yposition][xposition-1] == 3.1):#windleft
+                    xposition -= 2
+                elif (thisLevel.levelMap[yposition][xposition-1] == 3.2):#windright
+                    move = 0
+                elif (thisLevel.levelMap[yposition][xposition-1] == 3.3):#windup
+                    yposition -= 1
+                    xposition -= 1
+                elif (thisLevel.levelMap[yposition][xposition-1] == 3.4):#winddown
+                    yposition += 1
                     xposition -= 1
                 else: # -1
                     xposition -= 1
@@ -88,6 +128,19 @@ def shipMove(shipMaterial, shipSize, shipDirection, thisLevel, motorOn, mapSize,
                 elif (thisLevel.levelMap[yposition+1][xposition] == 9):
                     win = True
                     yposition += 1
+                elif (thisLevel.levelMap[yposition+1][xposition] == 2):#iceburg
+                    yposition += 1
+                    gameTurns += 1
+                elif (thisLevel.levelMap[yposition+1][xposition] == 3.1):#windleft
+                    xposition -= 1
+                    yposition += 1
+                elif (thisLevel.levelMap[yposition+1][xposition] == 3.2):#windright
+                    xposition += 1
+                    yposition += 1
+                elif (thisLevel.levelMap[yposition+1][xposition] == 3.3):#windup
+                    move = 0
+                elif (thisLevel.levelMap[yposition+1][xposition] == 3.4):#winddown
+                    yposition += 2
                 else: # -1
                     yposition += 1
                     lose = True

@@ -130,6 +130,12 @@ def piderCommands(piderList,shipDirection,thisLevel,xposition,yposition): #Add a
             ##Add dictionary to convert from color to number
             numberToColor = {0 : "blue",
                              1 : "gray",
+                             2 : "white",
+                             3.1: "sshhh",
+                             3.2: "sshhh",
+                             3.3: "sshhh",
+                             3.4: "sshhh",
+                             -1 : "blue",
                              9 : "green"}
             if realDirection == 0 or realDirection == 360:
                 doOutput = (searchColor == numberToColor[thisLevel.levelMap[yposition][xposition+1]])
