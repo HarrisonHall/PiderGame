@@ -41,9 +41,11 @@ pider5 = piderEngine.pider("(0,height.1,turn.180)")
 pider6 = piderEngine.pider("(90,height.0,speech.sup)")
 pider7 = piderEngine.pider("(180,height.1,turn.0)")
 pider8 = piderEngine.pider("(90,speech.sup,motor.on)")
+pider9 = piderEngine.pider("(90,color.blue,motor.on)")
+pider10 = piderEngine.pider("(180,color.gray,turn.0)")
+pider11 = piderEngine.pider("(0,color.gray,turn.180)")
 
-
-piderList = [pider5, pider7, pider6, pider8]
+piderList = [pider10, pider11, pider9]
 
 ##
 ##End test input
