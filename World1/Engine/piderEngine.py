@@ -124,17 +124,22 @@ def piderCommands(piderList,shipDirection,thisLevel,xposition,yposition): #Add a
             else:
                 doOutput = (searchHeight == thisLevel.levelMap[yposition-1][xposition])
         if Input[:Input.find(".")] == "color":
-            searchColor = Input[(Input.find(".")+1):]
+            searchColor = Input[(Input.find(".")+1):].lower()
+            if searchColor == "grey":
+                searchColor = "gray"
             ##Add dictionary to convert from color to number
+            numberToColor = {0 : "blue",
+                             1 : "gray",
+                             9 : "green"}
             if realDirection == 0 or realDirection == 360:
-                doOutput = (searchColor == thisLevel.levelMap[yposition][xposition+1])
+                doOutput = (searchColor == numberToColor[thisLevel.levelMap[yposition][xposition+1]])
             elif realDirection == 180:
-                doOutput = (searchColor == thisLevel.levelMap[yposition][xposition-1])
+                doOutput = (searchColor == numberToColor[thisLevel.levelMap[yposition][xposition-1]])
             elif realDirection == 270:
-                doOutput = (searchColor == thisLesvel.levelMap[yposition+1][xposition])
+                doOutput = (searchColor == numberToColor[thisLevel.levelMap[yposition+1][xposition]])
             else:
-                doOutput = (searchColor == thisLevel.levelMap[yposition-1][xposition])
-        #check color
+                doOutput = (searchColor == numberToColor[thisLevel.levelMap[yposition-1][xposition]])
+        
         print("Do Output? ",doOutput)
         if doOutput == True:
             if Output == "motor.off":
