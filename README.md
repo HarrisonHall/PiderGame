@@ -34,7 +34,7 @@ class pider():
 
 ## Dev Plan
 
-~~1. Add color to piders~~
+1. ~~Add color to piders~~
 2. Add animations to ship
 3. Add new tiles to tilemap (along with functionality)
 4. Create 10 levels
