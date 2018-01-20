@@ -1,11 +1,38 @@
 ## PiderGame
 Physics sim game using automated piders. 
 
-This is a personal project I'll be working on for the next few years. 
+This is a personal project I'll be working on for the next few years. World 1 is approximately 60% complete with a completion date sometime before June 2018. 
 
-Update 4.
+## Installation (General)
+*Download*
 
-**Dev Plan**
+* Press the "Clone or download" button
+
+*Python3*
+
+* Install Python3
+* Install pygame for Python3
+* Run main.py (ex. Linux: `python3 /World1/main.py`)
+* Type `1` for level 1
+
+*Editing Piders*
+
+* Pider files are located in `World1/main.py`
+* piderEngine.py explanation:
+```Python
+class pider():
+    def __init__(self, PiderDirectionInputOutput):
+        self.directionInputOutput = PiderDirectionInputOutput
+    #ex (270,speech.yes,speech.no) (90,true,turn.0)
+    #outputs: motor.on, motor.off, turn.0, turn.90, turn.180, turn.270, speech.""
+    #inputs: speech."", color.color, height.height
+```
+* Add `pider_ = piderEngine.pider("(direction,input,output)")` below other piders
+* Add `pider_` to list `piderList`, and remove the piders you do not want to use
+* Save file, and execute `main.py` in order to see the change
+
+
+## Dev Plan
 
 1. Add color to piders
 2. Add animations to ship
@@ -16,7 +43,9 @@ Update 4.
 
 * World1 menu
 
-*Example Code and Execution*
+**Example Code and Execution**
+
+*Example Level File*
 ```Python
 #"Ship Kingdom: 2" by Harrison Hall
 #import numpy as np
@@ -38,7 +67,9 @@ thisLevel.levelMap = [[1,1,1,1,1,1,1,1],
 #level1.levelStartPosition = [0, 0]
 thisLevel.maxTurns = 10
 thisLevel.levelStartOrientation = 270
-thisLevel.levelStartPosition = [1,1]```
+thisLevel.levelStartPosition = [1,1]
+```
+*Snip from piderEngine.py*
 ```Python
 def piderCommands(piderList,shipDirection,thisLevel,xposition,yposition): #Add and position*
     runningPiderList = copy.deepcopy(piderList)
@@ -64,18 +95,3 @@ def piderCommands(piderList,shipDirection,thisLevel,xposition,yposition): #Add a
 [//]: #![code1](/ExampleFiles/code1.png)
 [//]: #![code2](/ExampleFiles/code2.png)
 ![Game Output](/ExampleFiles/Level2.png)
-
-
-
-**The rest are doodles while I learn github**
-
-```Python
-pider5 = piderEngine.pider("0,true,motor.on")
-
-print("Cool yo")
-
-```
-
-`This` is in code.
-
-[Link me boss]("https://www.google.com")
