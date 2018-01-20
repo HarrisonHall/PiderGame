@@ -17,8 +17,7 @@ Update 4.
 * World1 menu
 
 *Example Code and Execution*
-'''
-#"Ship Kingdom: 2" by Harrison Hall
+'''#"Ship Kingdom: 2" by Harrison Hall
 #import numpy as np
 
 import Engine.levelEngine as levelEngine
@@ -38,10 +37,8 @@ thisLevel.levelMap = [[1,1,1,1,1,1,1,1],
 #level1.levelStartPosition = [0, 0]
 thisLevel.maxTurns = 10
 thisLevel.levelStartOrientation = 270
-thisLevel.levelStartPosition = [1,1]
-'''
-'''
-def piderCommands(piderList,shipDirection,thisLevel,xposition,yposition): #Add and position*
+thisLevel.levelStartPosition = [1,1]'''
+'''def piderCommands(piderList,shipDirection,thisLevel,xposition,yposition): #Add and position*
     runningPiderList = copy.deepcopy(piderList)
     speechArray = []
     outputArray = ["off",shipDirection] #[motorOn,direction]
@@ -60,8 +57,7 @@ def piderCommands(piderList,shipDirection,thisLevel,xposition,yposition): #Add a
             if Output == "motor.off":
                 outputArray[0] = "off"
             elif Output == "motor.on":
-                outputArray[0] = "on"
-'''
+                outputArray[0] = "on"'''
 #![code1](/ExampleFiles/code1.png)
 #![code2](/ExampleFiles/code2.png)
 ![Game Output](/ExampleFiles/Level2.png)
