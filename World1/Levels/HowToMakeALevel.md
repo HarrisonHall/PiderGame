@@ -11,8 +11,8 @@
         if levelSelcted.lower() == "examplelevel":
                     from Levels.ExampleLevel import piderGameExampleLevel as thisLevel```
 4. Modify PiderGameExampleLevel.py
-..* thisLevel.levelStartText holds any information you would like to give the user before the game begins
-..* thisLevel.levelMap holds the map of the level
+⋅⋅* thisLevel.levelStartText holds any information you would like to give the user before the game begins
+⋅⋅* thisLevel.levelMap holds the map of the level
 ....* -1 is a whirlpool
 ....* 0 is water
 ....* 1 is rock
