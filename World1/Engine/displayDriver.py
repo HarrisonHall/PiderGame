@@ -10,6 +10,7 @@ from os.path import dirname, realpath, abspath
 Black = (0,0,0)
 Brown = (153,76,0)
 Green = (0,255,0)
+Green2 = (0,200,0)
 Blue = (0,0,255)
 Silverleft = (192,190,192)
 Silverright = (192,191,192)
@@ -26,6 +27,7 @@ def pygameMap(inputMap, blockSize):
     textures= { Black : pygame.transform.scale(pygame.image.load('Engine/BlockSprites/deathblock.png'), (blockSize,blockSize)),
                 Brown : pygame.transform.scale(pygame.image.load('Engine/BlockSprites/rock.png'), (blockSize,blockSize)),
                 Green : pygame.transform.scale(pygame.image.load('Engine/BlockSprites/flag.png'), (blockSize,blockSize)),
+                Green2 : pygame.transform.scale(pygame.image.load('Engine/BlockSprites/shipwin.png'), (blockSize,blockSize)),
                 Blue : pygame.transform.scale(pygame.image.load('Engine/BlockSprites/water.png'), (blockSize,blockSize)),
                 Silverleft : pygame.transform.scale(pygame.image.load('Engine/BlockSprites/shipleft.png'), (blockSize,blockSize)),
                 Silverright : pygame.transform.scale(pygame.image.load('Engine/BlockSprites/shipright.png'), (blockSize,blockSize)),
@@ -71,7 +73,7 @@ def pygameMap(inputMap, blockSize):
             elif inputMap[row][column] == 7.8:
                 newMap[row][column] = Silverdead
             elif inputMap[row][column] == 7.7:
-                newMap[row][column] == Green
+                newMap[row][column] = Green2
             else:
                 newMap[row][column] = Black
             column += 1

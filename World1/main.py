@@ -48,7 +48,7 @@ pider5 = piderEngine.pider("(0,height.1,turn.180)")
 pider6 = piderEngine.pider("(90,height.0,speech.sup)")
 pider7 = piderEngine.pider("(180,height.1,turn.0)")
 pider8 = piderEngine.pider("(90,speech.sup,motor.on)")
-pider9 = piderEngine.pider("(90,color.blue,motor.on)")
+pider9 = piderEngine.pider("(90,true,motor.on)")
 pider10 = piderEngine.pider("(180,color.gray,turn.0)")
 pider11 = piderEngine.pider("(0,color.gray,turn.180)")
 
@@ -58,11 +58,4 @@ piderList = [pider10, pider11, pider9]
 ##End test input
 ##
 
-
-
-print("\n\nThe PiderGame: by Harrison Hall\n")
-print("This is the Map:")
-shipEngine.printMap(currentLevel.levelMap) #level1's thisLevel which is an instance of levelEngine's level
-print("Piders, GO!")
-print("\nStartOrientation: ",currentLevel.levelStartOrientation)
 turnEngine.runGame(currentLevel, randomShip, piderList)
