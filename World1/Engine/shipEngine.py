@@ -19,6 +19,7 @@ def printMap(mapListofLists):
             if tile > maxLength:
                 maxLength = tile
     count = 0
+    maxLength = 3
     for tile in mapListofLists[0]:
         count += maxLength + 2
     while(count >= 0):
@@ -31,7 +32,9 @@ def printMap(mapListofLists):
     while(spacingNumber < (maxLength + 2)):
         spacing = spacing + " "
         spacingNumber += 1
+    maxLength = 3
     for x in mapListofLists:
+        maxLength = 3
         for tile in x:
             integer = str(tile)
             integerLength = len(integer)
@@ -47,7 +50,14 @@ def shipMove(shipMaterial, shipSize, shipDirection, thisLevel, motorOn, mapSize,
     lose = False
     win = False
     currentMap = copy.deepcopy(thisLevel.levelMap)
-    currentMap[yposition][xposition] = 7
+    if shipDirection == 0 or shipDirection == 360:
+        currentMap[yposition][xposition] = 7.2
+    elif shipDirection == 180:
+        currentMap[yposition][xposition] = 7.1
+    elif shipDirection == 90:
+        currentMap[yposition][xposition] = 7.3
+    elif shipDirection == 270:
+        currentMap[yposition][xposition] = 7.4
     if shipMaterial.lower() == "aluminum": #also check unlocked for these
         mass = 2
     elif shipMaterial.lower() == "steel":
@@ -68,7 +78,7 @@ def shipMove(shipMaterial, shipSize, shipDirection, thisLevel, motorOn, mapSize,
         move = math.ceil(density)
     
     shipSprite = 7
-    currentMap[yposition][xposition] = shipSprite
+    #currentMap[yposition][xposition] = shipSprite
     printMap(currentMap)
     
     if motorOn == "on":
@@ -172,7 +182,7 @@ def shipMove(shipMaterial, shipSize, shipDirection, thisLevel, motorOn, mapSize,
                     yposition += 1
                     lose = True
             
-            currentMap[yposition][xposition] = shipSprite
+#            currentMap[yposition][xposition] = shipSprite
             
             if lose == True:
                 time.sleep(1)
@@ -185,7 +195,7 @@ def shipMove(shipMaterial, shipSize, shipDirection, thisLevel, motorOn, mapSize,
                 return ["lose",xposition,yposition]
             if win == True:
                 time.sleep(1)
-                shipSprite = 7.1
+                shipSprite = 7.7
                 currentMap[yposition][xposition] = shipSprite
                 printMap(currentMap)
                 displayDriver.pygameMap(currentMap, mapSize)
@@ -194,8 +204,16 @@ def shipMove(shipMaterial, shipSize, shipDirection, thisLevel, motorOn, mapSize,
                 print("")
                 time.sleep(5)
                 return ["win",xposition,yposition]
-            
-            currentMap[yposition][xposition] = shipSprite
+
+            if shipDirection == 180:
+                currentMap[yposition][xposition] = 7.1
+            elif shipDirection == 0 or shipDirection == 360:
+                currentMap[yposition][xposition] = 7.2
+            elif shipDirection == 90:
+                currentMap[yposition][xposition] = 7.3
+            else:
+                currentMap[yposition][xposition] = 7.4
+            #currentMap[yposition][xposition] = shipSprite
             time.sleep(1)
             printMap(currentMap) #change position
             displayDriver.pygameMap(currentMap, mapSize)
@@ -206,7 +224,15 @@ def shipMove(shipMaterial, shipSize, shipDirection, thisLevel, motorOn, mapSize,
             if move <= 0:
                 return ["go",xposition,yposition]
     else:
-        currentMap[yposition][xposition] = shipSprite
+        #currentMap[yposition][xposition] = shipSprite
+        if shipDirection == 180:
+            currentMap[yposition][xposition] = 7.1
+        elif shipDirection == 0 or shipDirection == 360:
+            currentMap[yposition][xposition] = 7.2
+        elif shipDirection == 90:
+            currentMap[yposition][xposition] = 7.3
+        else:
+            currentMap[yposition][xposition] = 7.4
         time.sleep(1)
         printMap(currentMap) #change position
         displayDriver.pygameMap(currentMap, mapSize)
