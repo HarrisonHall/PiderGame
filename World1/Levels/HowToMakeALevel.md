@@ -3,8 +3,8 @@
 1. Copy the `ExampleLevel` folder and rename it to something you like.
 2. Rename `ExampleLevel/PiderGameExampleLevel.py` to a custom name.
 3. Edit `Main.py`
-  * Add the customLevelFolder to `customLevelNames`
-  * Copy ```Python
+   * Add the customLevelFolder to `customLevelNames`
+   * Copy ```Python
         elif levelSelcted.lower() == "customlevelfolder":
                     from Levels.ExampleLevel import PiderGameExampleLevel as thisLevel```
         under ```Python
