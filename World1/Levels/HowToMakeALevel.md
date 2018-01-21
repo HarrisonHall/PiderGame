@@ -14,12 +14,12 @@
    * thisLevel.levelStartText holds any information you would like to give the user before the game begins
    * thisLevel.levelMap holds the map of the level
      * -1 is a whirlpool
-  * 0 is water
-  * 1 is rock
-  * 2 is an iceberg
-  * 3.1-3.4 are various wind directions
-  * 9 is the goal
-  * thisLevel.maxTurns is the number of turns piders have to complete the level
-  * thisLevel.levelStartOrientation is the direction (0, 90, 180, 270) the boat will be turned
-  * thisLevel.levelStartPosition is an [x,y] coordinate of the starting position, with [0,0] being in the top left
+     * 0 is water
+     * 1 is rock
+     * 2 is an iceberg
+     * 3.1-3.4 are various wind directions
+   * 9 is the goal
+   * thisLevel.maxTurns is the number of turns piders have to complete the level
+   * thisLevel.levelStartOrientation is the direction (0, 90, 180, 270) the boat will be turned
+   * thisLevel.levelStartPosition is an [x,y] coordinate of the starting position, with [0,0] being in the top left
 5. Enjoy your level
