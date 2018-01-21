@@ -28,15 +28,15 @@ def runGame(thisLevel, thisShip, piderList):
             
             
         if returnValues[0] == "win":
-            print("\nCool. You won. Yay.")
+            print("\nCongradulations!")
             print("\nScore:" + str(score))
             break
         elif returnValues[0] == "lose":
-            print("\nRIP")
+            print("\nThe ship has crashed!")
             print("\nScore:" + str(score))
             break
         if gameTurns == (thisLevel.maxTurns+1):
-            print("RIP, you lose m8. No turns.")
+            print("The piders have run out of energy!")
             print("\nScore:" + str(score))
         
         time.sleep(0.5)

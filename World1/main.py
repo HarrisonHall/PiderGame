@@ -5,22 +5,27 @@ import Engine.turnEngine as turnEngine
 import Engine.piderEngine as piderEngine
 import Engine.shipEngine as shipEngine
 
+customLevelsNames = ["examplelevel"]
 
 select = False
 while (select == False):
-    levelSelected =  int(input("Level: "))
-    if levelSelected > 0 and levelSelected < 6:
+    levelSelected =  input("Level: ")
+    levelSelectInt = int(levelSelected)
+    if levelSelectInt > 0 and levelSelectInt < 6:
         select = True
-        if levelSelected == 5:
-            from Levels.Level5 import catCingLevel5 as thisLevel
-        elif levelSelected ==4:
-            from Levels.Level4 import catCingLevel4 as thisLevel
-        elif levelSelected == 3:
-            from Levels.Level3 import catCingLevel3 as thisLevel
-        elif levelSelected == 2:
-            from Levels.Level2 import catCingLevel2 as thisLevel
+        if levelSelectInt == 5:
+            from Levels.Level5 import PiderGameLevel5 as thisLevel
+        elif levelSelectInt ==4:
+            from Levels.Level4 import PiderGameLevel4 as thisLevel
+        elif levelSelectInt == 3:
+            from Levels.Level3 import PiderGameLevel3 as thisLevel
+        elif levelSelectInt == 2:
+            from Levels.Level2 import PiderGameLevel2 as thisLevel
         else:
-            from Levels.Level1 import catCingLevel1 as thisLevel
+            from Levels.Level1 import PiderGameLevel1 as thisLevel
+    elif levelSelcted.lower() in customLevelNames:
+        if levelSelcted.lower() == "examplelevel":
+            from Levels.ExampleLevel import piderGameExampleLevel as thisLevel
     else:
         print("invalid")
 
