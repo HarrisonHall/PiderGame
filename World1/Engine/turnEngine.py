@@ -16,7 +16,7 @@ def runGame(thisLevel, thisShip, piderList):
         print("")
         movementDecision = piderEngine.piderCommands(piderList,movementDecision[1],thisLevel,currentPosition[0],currentPosition[1]) #return [("on"/"off"), direction]
         returnValues = shipEngine.shipMove(thisShip.type, thisShip.size, movementDecision[1], thisLevel, movementDecision[0], 60, currentPosition[0], currentPosition[1], gameTurns) #["go",xposition,yposition]
-        print(returnValues) #remove**
+        #print(returnValues) #remove**
         currentPosition = [returnValues[1],returnValues[2]]
         #movementDecision[1] = returnValues[1]
         gameTurns += 1

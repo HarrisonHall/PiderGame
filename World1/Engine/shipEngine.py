@@ -12,8 +12,35 @@ class ship():
     direction = 0
 
 def printMap(mapListofLists):
+    maxLength = 0
     for x in mapListofLists:
-        print(x)
+        for tile in x:
+            tile = len(str(tile))
+            if tile > maxLength:
+                maxLength = tile
+    count = 0
+    for tile in mapListofLists[0]:
+        count += maxLength + 2
+    while(count >= 0):
+        print("-",end="")
+        count -= 1
+    print("")
+    #print("maxLength",maxLength)
+    spacingNumber = 0
+    spacing = ""
+    while(spacingNumber < (maxLength + 2)):
+        spacing = spacing + " "
+        spacingNumber += 1
+    for x in mapListofLists:
+        for tile in x:
+            integer = str(tile)
+            integerLength = len(integer)
+            while(integerLength < maxLength+2):
+                integer = integer + " "
+                #print(".",integer,".")
+                integerLength = len(integer)
+            print(integer,end="")
+        print("")
     print("")
         
 def shipMove(shipMaterial, shipSize, shipDirection, thisLevel, motorOn, mapSize, xposition, yposition, gameTurns): #return ["(win/lose/go)",xposition,yposition]
