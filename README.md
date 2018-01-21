@@ -35,13 +35,12 @@ class pider():
 ## Dev Plan
 
 1. ~~Add color to piders~~
-2. Add animations to ship (probably not going to happen)
+2. ~~Add animations to ship (probably not going to happen (nope I did it))~~
 3. ~~Add new tiles to tilemap (along with functionality)~~
 4. Create 10 levels
-  * Keep in debug levels
+   * Keep in debug levels
 5. Levelmap
-
-* World1 menu
+6. World1 menu or gui
 
 **Example Code and Execution**
 
