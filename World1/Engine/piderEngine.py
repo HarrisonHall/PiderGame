@@ -112,7 +112,7 @@ def piderCommands(piderList,shipDirection,thisLevel,xposition,yposition): #Add a
         Input = findDirectionInputOutput(x, shipDirection)[1]
         Output = findDirectionInputOutput(x, shipDirection)[2]
         doOutput = False
-        print(x.__class__.__name__,": direction: ",realDirection)
+        #print(x.__class__.__name__,": direction: ",realDirection)
         if Input[:Input.find(".")] == "height":
             searchHeight = int(Input[(Input.find(".")+1):])
             if realDirection == 0 or realDirection == 360:
@@ -146,7 +146,7 @@ def piderCommands(piderList,shipDirection,thisLevel,xposition,yposition): #Add a
             else:
                 doOutput = (searchColor == numberToColor[thisLevel.levelMap[yposition-1][xposition]])
         
-        print("Do Output? ",doOutput)
+        #print("Do Output? ",doOutput)
         if doOutput == True:
             if Output == "motor.off":
                 outputArray[0] = "off"
@@ -169,7 +169,7 @@ def piderCommands(piderList,shipDirection,thisLevel,xposition,yposition): #Add a
         direction = findDirectionInputOutput(x, shipDirection)[0]
         Input = findDirectionInputOutput(x, shipDirection)[1]
         Output = findDirectionInputOutput(x, shipDirection)[2]
-        print(Input[Input.find("."):])
+        #print(Input[Input.find("."):])
         if Input[(Input.find(".")+1):] in speechArray:
             if Output == "motor.off":
                 outputArray[0] = "off"
