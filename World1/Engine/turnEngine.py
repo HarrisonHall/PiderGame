@@ -5,12 +5,15 @@ from . import shipEngine
 import time
 
 def runGame(thisLevel, thisShip, piderList):
+    print("\nThe Pider Game\n\nBy Harrison Hall\n")
     gameDirection = thisLevel.levelStartOrientation
     movementDecision = ["off",gameDirection]
     returnValues = []
     currentPosition = [thisLevel.levelStartPosition[0],thisLevel.levelStartPosition[1]]
     gameTurns = 1
     score = gameTurns
+    print("\n",thisLevel.levelTitle,'\n\n"',thisLevel.levelStartText,'"\n')
+    shipEngine.printMap(thisLevel.levelMap)
     while (gameTurns <= thisLevel.maxTurns):
         print("\n\nTurn: " + str(gameTurns))
         print("")
@@ -28,7 +31,7 @@ def runGame(thisLevel, thisShip, piderList):
             
             
         if returnValues[0] == "win":
-            print("\nCongradulations!")
+            print("\nCongratulations!")
             print("\nScore:" + str(score))
             break
         elif returnValues[0] == "lose":
