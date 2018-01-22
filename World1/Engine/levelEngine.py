@@ -10,6 +10,5 @@ class level(): #filled in values are defaults
     levelStartPosition = [1,1] #position starts at top left
     currentPosition = levelStartPosition #x,y or row,column
     levelStartOrientation = 0
-    #levelShip = ship()
     unlocked = []
     maxTurns = 10

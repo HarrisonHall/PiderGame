@@ -22,10 +22,10 @@ def printMap(mapListofLists):
     maxLength = 3
     for tile in mapListofLists[0]:
         count += maxLength + 2
-    while(count >= 0):
+    while(count >= 1):
         print("-",end="")
         count -= 1
-    print("")
+    print("-")
     #print("maxLength",maxLength)
     spacingNumber = 0
     spacing = ""
