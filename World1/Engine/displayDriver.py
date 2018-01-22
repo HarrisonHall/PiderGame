@@ -23,22 +23,22 @@ windup = (0,0,160)
 winddown = (0, 0, 180)
 White = (255,255,255)
 
-def pygameMap(inputMap, blockSize):
-    textures= { Black : pygame.transform.scale(pygame.image.load('Engine/BlockSprites/deathblock.png'), (blockSize,blockSize)),
-                Brown : pygame.transform.scale(pygame.image.load('Engine/BlockSprites/rock.png'), (blockSize,blockSize)),
-                Green : pygame.transform.scale(pygame.image.load('Engine/BlockSprites/flag.png'), (blockSize,blockSize)),
-                Green2 : pygame.transform.scale(pygame.image.load('Engine/BlockSprites/shipwin.png'), (blockSize,blockSize)),
-                Blue : pygame.transform.scale(pygame.image.load('Engine/BlockSprites/water.png'), (blockSize,blockSize)),
-                Silverleft : pygame.transform.scale(pygame.image.load('Engine/BlockSprites/shipleft.png'), (blockSize,blockSize)),
-                Silverright : pygame.transform.scale(pygame.image.load('Engine/BlockSprites/shipright.png'), (blockSize,blockSize)),
-                Silverup : pygame.transform.scale(pygame.image.load('Engine/BlockSprites/shipup.png'), (blockSize,blockSize)),
-                Silverdown : pygame.transform.scale(pygame.image.load('Engine/BlockSprites/shipdown.png'), (blockSize,blockSize)),
-                windleft : pygame.transform.scale(pygame.image.load('Engine/BlockSprites/windleft.png'), (blockSize,blockSize)),
-                windright : pygame.transform.scale(pygame.image.load('Engine/BlockSprites/windright.png'), (blockSize,blockSize)),
-                windup : pygame.transform.scale(pygame.image.load('Engine/BlockSprites/windup.png'), (blockSize,blockSize)),
-                winddown : pygame.transform.scale(pygame.image.load('Engine/BlockSprites/winddown.png'), (blockSize,blockSize)),
-                White : pygame.transform.scale(pygame.image.load('Engine/BlockSprites/iceberg.png'), (blockSize,blockSize)),
-                Silverdead : pygame.transform.scale(pygame.image.load('Engine/BlockSprites/shipwreck.png'), (blockSize,blockSize)),
+def pygameMap(inputMap, blockSizex, blockSizey):
+    textures= { Black : pygame.transform.scale(pygame.image.load('Engine/BlockSprites/deathblock.png'), (blockSizex,blockSizey)),
+                Brown : pygame.transform.scale(pygame.image.load('Engine/BlockSprites/rock.png'), (blockSizex,blockSizey)),
+                Green : pygame.transform.scale(pygame.image.load('Engine/BlockSprites/flag.png'), (blockSizex,blockSizey)),
+                Green2 : pygame.transform.scale(pygame.image.load('Engine/BlockSprites/shipwin.png'), (blockSizex,blockSizey)),
+                Blue : pygame.transform.scale(pygame.image.load('Engine/BlockSprites/water.png'), (blockSizex,blockSizey)),
+                Silverleft : pygame.transform.scale(pygame.image.load('Engine/BlockSprites/shipleft.png'), (blockSizex,blockSizey)),
+                Silverright : pygame.transform.scale(pygame.image.load('Engine/BlockSprites/shipright.png'), (blockSizex,blockSizey)),
+                Silverup : pygame.transform.scale(pygame.image.load('Engine/BlockSprites/shipup.png'), (blockSizex,blockSizey)),
+                Silverdown : pygame.transform.scale(pygame.image.load('Engine/BlockSprites/shipdown.png'), (blockSizex,blockSizey)),
+                windleft : pygame.transform.scale(pygame.image.load('Engine/BlockSprites/windleft.png'), (blockSizex,blockSizey)),
+                windright : pygame.transform.scale(pygame.image.load('Engine/BlockSprites/windright.png'), (blockSizex,blockSizey)),
+                windup : pygame.transform.scale(pygame.image.load('Engine/BlockSprites/windup.png'), (blockSizex,blockSizey)),
+                winddown : pygame.transform.scale(pygame.image.load('Engine/BlockSprites/winddown.png'), (blockSizex,blockSizey)),
+                White : pygame.transform.scale(pygame.image.load('Engine/BlockSprites/iceberg.png'), (blockSizex,blockSizey)),
+                Silverdead : pygame.transform.scale(pygame.image.load('Engine/BlockSprites/shipwreck.png'), (blockSizex,blockSizey)),
             }
     newMap = copy.deepcopy(inputMap)
     pygame.display.set_caption("Piders and Stuffs", "None")
@@ -81,17 +81,18 @@ def pygameMap(inputMap, blockSize):
    
     mapHeight = len(inputMap)
     mapWidth = len(inputMap[0])
-    tileSize = blockSize
-    displaySurf = pygame.display.set_mode((mapWidth*tileSize,mapHeight*tileSize))
+    #tileSize = blockSize
+    displaySurf = pygame.display.set_mode((mapWidth*blockSizex,mapHeight*blockSizey))
     
     for event in pygame.event.get():
         if event.type == QUIT:
-            pygame.exit(0)
-            pygame.display.quit(0)
-            sys.exit(0)
+            print("\n\nHave a nice day!")
+            pygame.quit()
+            pygame.display.quit()
+            sys.exit()
     
     for row in range(mapHeight):
         for column in range(mapWidth):
-            displaySurf.blit(textures[newMap[row][column]], (column*tileSize, row*tileSize))
+            displaySurf.blit(textures[newMap[row][column]], (column*blockSizex, row*blockSizey))
             #pygame.draw.rect(displaySurf, newMap[row][column], (column*tileSize, row*tileSize, tileSize,tileSize)) #change to display color version
     pygame.display.update()

@@ -1,6 +1,7 @@
 ## PiderGame Gui Execution Script
 ## By Harrison Hall
 
+import os
 from os import system
 import pygame
 from pygame.locals import *
@@ -22,6 +23,7 @@ while (startPressed != True):
     menu = pygame.display.set_mode((menuWidth,menuHeight))
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
+            print("\n\nHave a nice day!")
             pygame.quit()
             quit()
     menu.fill((119,136,153))
@@ -43,7 +45,8 @@ while (startPressed != True):
     if pygame.mouse.get_pressed()[0]:
         pygame.quit()
         print("swag")
-        system('python3 World1/main.py')
+        os.chdir('World1')
+        system('python3.6 main.py')
         quit()
     
     pygame.display.update()
