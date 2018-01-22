@@ -45,8 +45,8 @@ def printMap(mapListofLists):
             print(integer,end="")
         print("")
     print("")
-        
-def shipMove(shipMaterial, shipSize, shipDirection, thisLevel, motorOn, mapSize, xposition, yposition, gameTurns): #return ["(win/lose/go)",xposition,yposition]
+
+def shipMove(shipMaterial, shipSize, shipDirection, thisLevel, motorOn, blockSizex, blockSizey, xposition, yposition, gameTurns): #return ["(win/lose/go)",xposition,yposition]
     lose = False
     win = False
     currentMap = copy.deepcopy(thisLevel.levelMap)
@@ -189,7 +189,7 @@ def shipMove(shipMaterial, shipSize, shipDirection, thisLevel, motorOn, mapSize,
                 shipSprite = 7.8
                 currentMap[yposition][xposition] = shipSprite
                 printMap(currentMap)
-                displayDriver.pygameMap(currentMap, mapSize)
+                displayDriver.pygameMap(currentMap, blockSizex, blockSizey)
                 print("Game Over")
                 time.sleep(5)
                 return ["lose",xposition,yposition]
@@ -198,7 +198,7 @@ def shipMove(shipMaterial, shipSize, shipDirection, thisLevel, motorOn, mapSize,
                 shipSprite = 7.7
                 currentMap[yposition][xposition] = shipSprite
                 printMap(currentMap)
-                displayDriver.pygameMap(currentMap, mapSize)
+                displayDriver.pygameMap(currentMap, blockSizex, blockSizey)
                 print("")
                 print("You win! Good Job!")
                 print("")
@@ -216,7 +216,7 @@ def shipMove(shipMaterial, shipSize, shipDirection, thisLevel, motorOn, mapSize,
             #currentMap[yposition][xposition] = shipSprite
             time.sleep(1)
             printMap(currentMap) #change position
-            displayDriver.pygameMap(currentMap, mapSize)
+            displayDriver.pygameMap(currentMap, blockSizex, blockSizey)
             ##Comment out if visual map cannot display
             
             
@@ -235,5 +235,5 @@ def shipMove(shipMaterial, shipSize, shipDirection, thisLevel, motorOn, mapSize,
             currentMap[yposition][xposition] = 7.4
         time.sleep(1)
         printMap(currentMap) #change position
-        displayDriver.pygameMap(currentMap, mapSize)
+        displayDriver.pygameMap(currentMap, blockSizex, blockSizey)
         return ["stop",xposition,yposition]
