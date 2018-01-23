@@ -1,10 +1,10 @@
-#"Ship Kingdom Debug: 3" by Harrison Hall
+#"World 1 Level 3: Twisty and Turny" by Harrison Hall
 
 import Engine.levelEngine as levelEngine
 
 thisLevel = levelEngine.level()
-thisLevel.levelStartText = "Debug1: You have unlocked boats: small and wooden, motor: manual, pider: color, height."
-#level1.unlocked.append("wood", "small", "manual", "color", "height")
+thisLevel.levelStartText = "Piders can see both color and height of the objects. See if you can make choose to turn."
+thisLevel.levelTitle = "World 1 Level 3: Twisty and Turny"
 thisLevel.levelMap = [[1,1,1,1,1,1,1],
                       [1,9,1,0,0,0,1],
                       [1,0,1,0,1,0,1],

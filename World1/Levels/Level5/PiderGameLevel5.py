@@ -1,9 +1,10 @@
-#"Big Buffalo" by Harrison Hall
+# "World 1 Level 5: Learn the Winds" by Harrison Hall
 
 import Engine.levelEngine as levelEngine
 
 thisLevel = levelEngine.level()
-thisLevel.levelStartText = "Debug1: You have unlocked boats: small and wooden, motor: manual, pider: color, height."
+thisLevel.levelStartText = "Winds sure are harsh."
+thisLevel.levelTitle = "World 1 Level 5: Learn the Winds"
 thisLevel.levelMap = [[1  ,1  ,1  ,1  ,1],
                       [1  ,2  ,9  ,2  ,1],
                       [1  ,3.2,3.4,3.1,1],
