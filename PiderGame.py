@@ -11,11 +11,9 @@ pygame.init()
 if not pygame.font: print('Warning, fonts disabled')
 if not pygame.mixer: print('Warning, sound disabled')
 
-
-
 startPressed = False
 while (startPressed != True):
-
+    pygame.display.set_caption("PiderGame")
     mouse = pygame.mouse.get_pos()
     menuWidth = 500
     menuHeight = 800
@@ -31,6 +29,7 @@ while (startPressed != True):
     harryFont = pygame.font.Font('freesansbold.ttf',25)
     
     title = pidergameFont.render("PiderGame",1,(169,169,169))
+    
     #title.get_rect.width()
     creator = harryFont.render("By Harrison Hall",1,(11,11,11))
     menu.blit(title, (menuWidth/2-title.get_rect().width/2,menuHeight/7))
@@ -44,7 +43,7 @@ while (startPressed != True):
 
     if pygame.mouse.get_pressed()[0]:
         pygame.quit()
-        print("swag")
+        print("Executing World1/main.py")
         os.chdir('World1')
         system('python3.6 main.py')
         quit()
