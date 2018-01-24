@@ -1,9 +1,9 @@
-#main.py
+#unixmain.py
 
 import time
-import Engine.turnEngine as turnEngine
+import Engine.turnEngineunix as turnEngineunix
 import Engine.piderEngine as piderEngine
-import Engine.shipEngine as shipEngine
+import Engine.shipEngineunix as shipEngine
 
 customLevelNames = ["examplelevel"]
 
@@ -55,4 +55,4 @@ piderList = piderInput.piderList
 ##End test input
 ##
 
-turnEngine.runGame(currentLevel, randomShip, piderList)
+turnEngineunix.runGame(currentLevel, randomShip, piderList)
