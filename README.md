@@ -1,5 +1,5 @@
 ## PiderGame
-Physics sim game using automated piders. 
+Arcade game using automated piders. Unix version requires Python3. Gui version requires Python3 and pygame.  
 
 This is a personal project I'll be working on for the next few years. World 1 is approximately 60% complete with a completion date sometime before June 2018. 
 

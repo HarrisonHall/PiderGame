@@ -101,8 +101,6 @@ def piderCommands(piderList,shipDirection,thisLevel,xposition,yposition): #Add a
         else:
             if Input[:Input.find(".")] == "speech":
                 speechPidersArray.append(y)
-
-
             elif Input[:Input.find(".")] == "color" or Input[:Input.find(".")] == "height":
                 sightPidersArray.append(y)
 

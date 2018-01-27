@@ -4,16 +4,60 @@ import time
 import Engine.unixTurnEngine as turnEngineunix
 import Engine.piderEngine as piderEngine
 import Engine.unixShipEngine as shipEngine
+import sys
 
 customLevelNames = ["examplelevel"]
 
 userCommand = "nada"
 while (userCommand.lower() != "p"):
-    userCommand = input(">>[Options: play level (p), edit piders (e), view levels (v)]: ")
-    if userCommand == "p":
+    userCommand = input(">>[Options: play level (p), edit piders (e), view levels (v), quit (q)]: ")
+    if userCommand == "q":
+        print("\nHave a nice day!\n")
+        sys.exit()
+    elif userCommand == "p":
         pass
     elif userCommand == "e":
-        print("\nFeature coming soon!\n")
+        print("\nEdit the piders:  \n")
+        piderChoice = "1"
+        while(piderChoice != "q" and piderChoice != "e"):
+            piderChoice = input(">>>[Options: choose pider (1, 2,...6), exit (e)]: ")
+            if piderChoice == "q" or piderChoice == "e":
+                pass
+            else:
+                piderDirection = input("Direction (0,90,180,270): ")
+                piderInput = input("Input (true,speech.x,color.x): ")
+                piderOutput = input("Output (motor.on/off,turn.direction,speech.x,nothing): ")
+                noMistake = input("Are you sure (y/n): ")
+                newPider = " = piderEngine.pider(\"(" + piderDirection + "," + piderInput + "," + piderOutput + ")\")"
+                writeLine = int(piderChoice)
+                if noMistake == "y":
+                    if piderChoice == "1":
+                        newPider = "pider1" + newPider
+                    elif piderChoice == "2":
+                        newPider = "pider2" + newPider
+                    elif piderChoice == "3":
+                        newPider = "pider3" + newPider
+                    elif piderChoice == "4":
+                        newPider = "pider4" + newPider
+                    elif piderChoice == "5":
+                        newPider = "pider5" + newPider
+                    else: #piderChoice == "6"
+                        writeLine = 6
+                        newPider = "pider6" + newPider
+                    newPider += "\n"
+                    writeFile = "piderInput.py"
+                    theFile = open(writeFile,"r")
+                    lineNumber = 1
+                    fileLines = []
+                    for line in theFile:
+                        fileLines.append(line)
+                    fileLines[writeLine] = newPider
+                    theFile.close()
+                    theFile = open(writeFile,"w")
+                    theFile.writelines(fileLines)
+                    print("...written...")
+                    theFile.close()
+                    
     elif userCommand == "v":
         showLevel = False
         levelSelected =  input("\n>>Level (1-10): ")
