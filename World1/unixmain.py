@@ -9,13 +9,11 @@ import sys
 customLevelNames = ["examplelevel"]
 
 userCommand = "nada"
-while (userCommand.lower() != "p"):
+while (userCommand.lower() != "q"):
     userCommand = input(">>[Options: play level (p), edit piders (e), view levels (v), quit (q)]: ")
     if userCommand == "q":
         print("\nHave a nice day!\n")
         sys.exit()
-    elif userCommand == "p":
-        pass
     elif userCommand == "e":
         print("\nEdit the piders:  \n")
         piderChoice = "1"
@@ -93,59 +91,55 @@ while (userCommand.lower() != "p"):
             print("\n",thisLevel.thisLevel.levelTitle,"\n",thisLevel.thisLevel.levelStartText,"\n\nMax Turns: ",thisLevel.thisLevel.maxTurns,"\n")
             shipEngine.printMap(thisLevel.thisLevel.levelMap)
             print("\nOrientation: ",thisLevel.thisLevel.levelStartOrientation,"\nStart Position ((0,0) in top left): ",thisLevel.thisLevel.levelStartPosition)
+    elif userCommand == "p":
+        select = False
+        while (select == False):
+            levelSelected =  input("\nLevel: ")
+            levelSelectInt = int(levelSelected)
+            if levelSelectInt > 0 and levelSelectInt < 11:
+                select = True
+                if levelSelectInt == 10:
+                    from Levels.Level10 import PiderGameLevel10 as thisLevel
+                elif levelSelectInt == 9:
+                    from Levels.Level9 import PiderGameLevel9 as thisLevel
+                elif levelSelectInt == 8:
+                    from Levels.Level8 import PiderGameLevel8 as thisLevel
+                elif levelSelectInt == 7:
+                    from Levels.Level7 import PiderGameLevel7 as thisLevel
+                elif levelSelectInt == 6:
+                    from Levels.Level6 import PiderGameLevel6 as thisLevel
+                elif levelSelectInt == 5:
+                    from Levels.Level5 import PiderGameLevel5 as thisLevel
+                elif levelSelectInt ==4:
+                    from Levels.Level4 import PiderGameLevel4 as thisLevel
+                elif levelSelectInt == 3:
+                    from Levels.Level3 import PiderGameLevel3 as thisLevel
+                elif levelSelectInt == 2:
+                    from Levels.Level2 import PiderGameLevel2 as thisLevel
+                else:
+                    from Levels.Level1 import PiderGameLevel1 as thisLevel
+            elif levelSelected.lower() in customLevelNames:
+                if levelSelected.lower() == "examplelevel":
+                    from Levels.ExampleLevel import piderGameExampleLevel as thisLevel
+                else:
+                    print("invalid")
 
-    else:
-        print("Whoopsie!")
-    
+            currentLevel = thisLevel.thisLevel
 
+            ##
+            ##Test Input, to be removed
+            ##
+            randomShip = shipEngine.ship()
+            randomShip.type = "wood"
+            randomShip.motor = "manual"
+            randomShip.size = "small"
 
-select = False
+            import piderInput
+            piderList = piderInput.piderList
+            ##
+            ##End test input
+            ##
 
-while (select == False):
-    levelSelected =  input("\nLevel: ")
-    levelSelectInt = int(levelSelected)
-    if levelSelectInt > 0 and levelSelectInt < 11:
-        select = True
-        if levelSelectInt == 10:
-            from Levels.Level10 import PiderGameLevel10 as thisLevel
-        elif levelSelectInt == 9:
-            from Levels.Level9 import PiderGameLevel9 as thisLevel
-        elif levelSelectInt == 8:
-            from Levels.Level8 import PiderGameLevel8 as thisLevel
-        elif levelSelectInt == 7:
-            from Levels.Level7 import PiderGameLevel7 as thisLevel
-        elif levelSelectInt == 6:
-            from Levels.Level6 import PiderGameLevel6 as thisLevel
-        elif levelSelectInt == 5:
-            from Levels.Level5 import PiderGameLevel5 as thisLevel
-        elif levelSelectInt ==4:
-            from Levels.Level4 import PiderGameLevel4 as thisLevel
-        elif levelSelectInt == 3:
-            from Levels.Level3 import PiderGameLevel3 as thisLevel
-        elif levelSelectInt == 2:
-            from Levels.Level2 import PiderGameLevel2 as thisLevel
-        else:
-            from Levels.Level1 import PiderGameLevel1 as thisLevel
-    elif levelSelected.lower() in customLevelNames:
-        if levelSelected.lower() == "examplelevel":
-            from Levels.ExampleLevel import piderGameExampleLevel as thisLevel
-    else:
-        print("invalid")
+            turnEngineunix.runGame(currentLevel, randomShip, piderList)
 
-currentLevel = thisLevel.thisLevel
-
-##
-##Test Input, to be removed
-##
-randomShip = shipEngine.ship()
-randomShip.type = "wood"
-randomShip.motor = "manual"
-randomShip.size = "small"
-
-import piderInput
-piderList = piderInput.piderList
-##
-##End test input
-##
-
-turnEngineunix.runGame(currentLevel, randomShip, piderList)
+            print("\n\n")
