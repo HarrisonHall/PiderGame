@@ -9,8 +9,8 @@ You can play PiderGame in both a text-only unix format with Python3, or via a gu
 ### Text-Only
 *Prerequisites*
 * Install Python3
-*Running*
 
+*Running*
 * Clone or download to your desired location
 * Launch UnixPiderGame.py 
   * Use your Python launcher
