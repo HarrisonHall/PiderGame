@@ -14,7 +14,7 @@ You can play PiderGame in both a text-only unix format with Python3, or via a gu
 * Clone or download to your desired location
 * Launch UnixPiderGame.py 
   * Use your Python launcher
-  * or in unix: `Python3 UnixPiderGame.py*`
+  * or in unix: `Python3 UnixPiderGame.py`
 
 ### Gui-Version (in development)
 *Prerequisites*
@@ -25,7 +25,7 @@ You can play PiderGame in both a text-only unix format with Python3, or via a gu
 * Clone or download to your desired location
 * Launch PiderGame.py 
   * Use your Python launcher
-  * or in unix: `Python3 PiderGame.py*`
+  * or in unix: `Python3 PiderGame.py`
 
 ## Playing the game
 Depending on the way you intend to play PiderGame, the rules are different.
