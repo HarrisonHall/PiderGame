@@ -48,4 +48,4 @@ while (startPressed != True):
         system('python3.6 main.py')
         quit()
     
-    pygame.display.update()
+    pygame.display.update() #
